@@ -1,4 +1,4 @@
-@extends('Dashboard.layouts.raceptionist_master')
+@extends('Dashboard.layouts.master')
 @section('css')
     <!--Internal   Notify -->
     <link href="{{URL::asset('dashboard/plugins/notify/css/notifIt.css')}}" rel="stylesheet"/>

@@ -111,8 +111,7 @@ Route::group(
 
         //############################# Patients route ##########################################
 
-//        Route::resource('Patients', PatientController::class)->name('patients');
-        Route::get('/patients/create',function(){dd('test');})->name('createPatients');
+        Route::resource('Patients', PatientController::class);
 
         //############################# end Patients route ######################################
 

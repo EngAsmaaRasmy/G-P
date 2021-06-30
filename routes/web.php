@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\Dashboard\PatientController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/reception/patient/create',[PatientController::class,'create'])->name('reception.patient.create');
 
 
 
