@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
+use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Astrotomic\Translatable\Translatable;
 
 class Doctor extends Model
 {
@@ -12,7 +12,6 @@ class Doctor extends Model
     use HasFactory;
     public $translatedAttributes = ['name','appointments'];
     public $fillable= ['email','email_verified_at','password','phone','name','section_id','status'];
-    //protected $guarded=[];
 
     /**
      * Get the Doctor's image.
@@ -27,11 +26,10 @@ class Doctor extends Model
     {
         return $this->belongsTo(Section::class);
     }
-
+    //many to many relationship between doctor and appointment
     public function doctorappointments()
     {
         return $this->belongsToMany(Appointment::class,'appointment_doctor');
     }
-
 
 }

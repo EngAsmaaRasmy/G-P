@@ -49,6 +49,20 @@ Route::group(
 
     //################################ end dashboard admin #####################################
 
+    //################################ dashboard doctor ########################################
+    Route::get('/dashboard/doctor', function () {
+        return view('Dashboard.Doctor.dashboard');
+    })->middleware(['auth:doctor_logins'])->name('dashboard.doctor_logins');
+
+    //################################ end dashboard doctor #####################################
+
+    //################################ dashboard receptionist ########################################
+    Route::get('/dashboard/receptionist', function () {
+        return view('Dashboard.Receptionist.dashboard');
+    })->middleware(['auth:receptionist_logins'])->name('dashboard.receptionist_logins');
+
+    //################################ end dashboard receptionist #####################################
+
 //---------------------------------------------------------------------------------------------------------------
 
 
@@ -97,7 +111,8 @@ Route::group(
 
         //############################# Patients route ##########################################
 
-        Route::resource('Patients', PatientController::class);
+//        Route::resource('Patients', PatientController::class)->name('patients');
+        Route::get('/patients/create',function(){dd('test');})->name('createPatients');
 
         //############################# end Patients route ######################################
 

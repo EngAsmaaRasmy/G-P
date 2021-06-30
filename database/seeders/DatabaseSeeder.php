@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\DoctorLogin;
+use App\Models\Receptionist;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,6 +22,8 @@ class DatabaseSeeder extends Seeder
             SectionTableSeeder::class,
             DoctorTableSeeder::class,
             ImageTableSeeder::class,
+            DoctorLoginSeeder::class,
+            ReceptionistSeeder::class,
         ]);
 
     }

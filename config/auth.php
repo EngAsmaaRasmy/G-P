@@ -45,11 +45,27 @@ return [
             'driver' => 'session',
             'provider' => 'admins',
         ],
-
-
-        'api' => [
+        'admin_api' => [
             'driver' => 'token',
-            'provider' => 'users',
+            'provider' => 'admins',
+            'hash' => false,
+        ],
+        'doctor_logins' => [
+            'driver' => 'session',
+            'provider' => 'doctor_logins',
+        ],
+        'doctor_logins_api' => [
+            'driver' => 'token',
+            'provider' => 'doctor_logins',
+            'hash' => false,
+        ],
+        'receptionist_logins' => [
+            'driver' => 'session',
+            'provider' => 'receptionist_logins',
+        ],
+        'receptionist_logins_api' => [
+            'driver' => 'token',
+            'provider' => 'receptionist_logins',
             'hash' => false,
         ],
     ],
@@ -80,6 +96,14 @@ return [
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Models\Admin::class,
+        ],
+        'doctor_logins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\DoctorLogin::class,
+        ],
+        'receptionist_logins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\ReceptionistLogin::class,
         ],
 
 

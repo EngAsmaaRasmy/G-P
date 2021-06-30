@@ -25,7 +25,9 @@ class PatientController extends Controller
 
     public function create()
     {
-        return$this->Patient->create();
+        dd('test');
+//        return $this->Patient->create();
+        return view('Dashboard.Patients.create');
     }
 
 

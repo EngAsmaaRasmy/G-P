@@ -26,6 +26,13 @@ class RedirectIfAuthenticated
         if (auth('admin')->check()){
             return redirect(RouteServiceProvider::ADMIN);
         }
+        if (auth('doctor_logins')->check()){
+            return redirect(RouteServiceProvider::DOCTOR);
+        }
+        if (auth('receptionist_logins')->check()){
+            return redirect(RouteServiceProvider::RECEPTIONIST);
+        }
+
 
         return $next($request);
     }
