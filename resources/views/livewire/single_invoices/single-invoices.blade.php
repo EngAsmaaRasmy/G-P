@@ -7,12 +7,13 @@
     @if ($InvoiceUpdated)
         <div class="alert alert-info">تم تعديل البيانات بنجاح.</div>
     @endif
+        {{--
+            @if($show_table)
 
-    @if($show_table)
-
-     @include('livewire.single_invoices.Table')
+             @include('livewire.single_invoices.Table')
 
     @else
+    --}}
 
     <form wire:submit.prevent="store" autocomplete="off">
                 @csrf
@@ -106,7 +107,7 @@
                 <input class="btn btn-outline-success" type="submit" value="تاكيد البيانات">
             </form>
 
-    @endif
+    {{--@endif--}}
 
 
 </div>

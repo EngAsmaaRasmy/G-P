@@ -113,6 +113,8 @@ Route::group(
 
         Route::resource('Patients', PatientController::class);
 
+      // Route::post('/patients/store',[PatientController::class,'store'])->name('storePatients');
+
         //############################# end Patients route ######################################
 
 
@@ -139,6 +141,14 @@ Route::group(
 
 
     require __DIR__.'/auth.php';
+
+
+});
+
+Route::middleware(['auth:receptionist_logins'])->group(function () {
+
+    Route::resource('Patients', PatientController::class);
+    Route::view('single_invoices','livewire.single_invoices.index')->name('single_invoices');
 
 
 });

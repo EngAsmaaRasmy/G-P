@@ -1,4 +1,4 @@
-@extends('Dashboard.layouts.master')
+@extends('Dashboard.layouts.raceptionist_master')
 @section('css')
     <!--Internal Sumoselect css-->
     <link rel="stylesheet" href="{{ URL::asset('Dashboard/plugins/sumoselect/sumoselect-rtl.css') }}">

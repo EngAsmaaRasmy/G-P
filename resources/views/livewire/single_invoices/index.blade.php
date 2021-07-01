@@ -1,4 +1,4 @@
-@extends('Dashboard.layouts.master')
+@extends('Dashboard.layouts.raceptionist_master')
 @section('css')
 @endsection
 @section('title')

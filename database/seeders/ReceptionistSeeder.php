@@ -19,7 +19,7 @@ class ReceptionistSeeder extends Seeder
         DB::table('receptionist_logins')->insert([
             'name' => 'receptionist',
             'email' => 'receptionist@gmail.com',
-            'password' => Hash::make('12345678'),
+            'password' => Hash::make(md5('12345678')),
         ]);
     }
 }

@@ -19,8 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::get('/reception/patient/create',[PatientController::class,'create'])->name('reception.patient.create');
+//Route::get('/reception/patient/create',[PatientController::class,'create'])->name('receptionist.create');
 
 
 

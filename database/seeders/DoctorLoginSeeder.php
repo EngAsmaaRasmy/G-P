@@ -19,7 +19,7 @@ class DoctorLoginSeeder extends Seeder
         DB::table('doctor_logins')->insert([
             'name' => 'doctorlogin',
             'email' => 'doctor@gmail.com',
-            'password' => Hash::make('12345678'),
+            'password' => Hash::make(md5('12345678')),
         ]);
     }
 }
