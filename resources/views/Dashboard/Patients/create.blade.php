@@ -24,7 +24,7 @@
     <div class="col">
         <div class="card">
             <div class="card-body">
-                <form action="{{route('storePatients')}}" method="post" autocomplete="off">
+                <form action="{{route('patients.store')}}" method="post" autocomplete="off">
                     @csrf
                     <div class="row">
                         <div class="col-3">

@@ -111,16 +111,13 @@ Route::group(
 
         //############################# Patients route ##########################################
 
-<<<<<<< HEAD
         Route::resource('Patients', PatientController::class);
 
       // Route::post('/patients/store',[PatientController::class,'store'])->name('storePatients');
-=======
 //        Route::resource('Patients', PatientController::class)->name('patients');
         Route::get('/patients/create',[PatientController::class,'create'])->name('createPatients');
         Route::post('/patients/store',[PatientController::class,'store'])->name('storePatients');
 
->>>>>>> e5ed0286d9bf756aa8c5503fcb093d6a35981f28
 
         //############################# end Patients route ######################################
 
@@ -152,12 +149,15 @@ Route::group(
 
 });
 
-Route::middleware(['auth:receptionist_logins'])->group(function () {
+//Route::middleware(['auth:receptionist_logins'])->group(function () {
+//    Route::resource('Patients', PatientController::class);
+//    Route::view('single_invoices','livewire.single_invoices.index')->name('single_invoices');
+//});
 
-    Route::resource('Patients', PatientController::class);
+
+Route::group(['middleware' => ['auth:receptionist_logins,admin']], function() {
+    Route::resource('patients', PatientController::class);
     Route::view('single_invoices','livewire.single_invoices.index')->name('single_invoices');
-
-
 });
 
 

@@ -33,7 +33,7 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->midd
 
 Route::post('/login/admin', [AdminController::class, 'store'])->middleware('guest')->name('login.admin');
 
-Route::post('/logout/admin', [AdminController::class, 'destroy'])->middleware('auth:admin')->name('logout.admin');
+Route::get('/logout/admin', [AdminController::class, 'destroy'])->middleware('auth:admin')->name('logout.admin');
 
 //#############################################################################################
 
