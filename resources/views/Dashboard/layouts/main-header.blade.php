@@ -289,7 +289,10 @@
                                 <div class="main-img-user"><img alt="" src="{{URL::asset('Dashboard/img/faces/6.jpg')}}"
                                                                 class=""></div>
                                 <div class="mr-3 my-auto">
-                                    <h6>Petey Cruiser</h6><span>Premium Member</span>
+                                    <div class="user-info">
+                                        <h6 class="font-weight-semibold mt-3 mb-0 text-white ">{{ Auth::user()->name }}</h6>
+                                        <span class="mb-0 text-muted">{{ Auth::user()->email }}</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -13,8 +13,10 @@
         "joedixon/laravel-translation": "^1.1",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
+        "laravelcollective/html": "^6.2",
         "livewire/livewire": "^2.4",
-        "mcamara/laravel-localization": "^1.6"
+        "mcamara/laravel-localization": "^1.6",
+        "spatie/laravel-permission": "^4.2"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
