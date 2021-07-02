@@ -22,8 +22,11 @@ Route::get('/', function () {
 });
 
 
+<<<<<<< HEAD
 //Route::get('/reception/patient/create',[PatientController::class,'create'])->name('receptionist.create');
 
+=======
+>>>>>>> 4a78743d62fa31c62bdf383954fc53e2d2dc7090
 
 
 

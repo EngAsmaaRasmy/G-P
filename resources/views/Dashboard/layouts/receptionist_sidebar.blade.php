@@ -34,6 +34,10 @@
                         <ul class="slide-menu">
                             <li><a class="slide-item" href="{{route('patients.create')}}">اضافة مريض</a></li>
                             <li><a class="slide-item" href="{{ route('patients.index') }}">قائمة المرضي</a></li>
+<<<<<<< HEAD
+=======
+{{--                            <li><a class="slide-item" href="{{route('storePatients')}}">تعديل مريض</a></li>--}}
+>>>>>>> 4a78743d62fa31c62bdf383954fc53e2d2dc7090
                         </ul>
                     </li>
                     <li class="slide">
