@@ -111,12 +111,12 @@ Route::group(
 
         //############################# Patients route ##########################################
 
-        Route::resource('Patients', PatientController::class);
+//        Route::resource('Patients', PatientController::class);
 
       // Route::post('/patients/store',[PatientController::class,'store'])->name('storePatients');
 //        Route::resource('Patients', PatientController::class)->name('patients');
-        Route::get('/patients/create',[PatientController::class,'create'])->name('createPatients');
-        Route::post('/patients/store',[PatientController::class,'store'])->name('storePatients');
+//        Route::get('/patients/create',[PatientController::class,'create'])->name('createPatients');
+//        Route::post('/patients/store',[PatientController::class,'store'])->name('storePatients');
 
 
         //############################# end Patients route ######################################

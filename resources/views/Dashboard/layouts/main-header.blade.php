@@ -286,8 +286,7 @@
                     <div class="dropdown-menu">
                         <div class="main-header-profile bg-primary p-3">
                             <div class="d-flex wd-100p">
-                                <div class="main-img-user"><img alt="" src="{{URL::asset('Dashboard/img/faces/6.jpg')}}"
-                                                                class=""></div>
+                                <div class="main-img-user"><img alt="" src="{{URL::asset('Dashboard/img/faces/6.jpg')}}"></div>
                                 <div class="mr-3 my-auto">
                                     <h6>Petey Cruiser</h6><span>Premium Member</span>
                                 </div>
@@ -303,24 +302,23 @@
                             <form method="POST" action="{{ route('logout.user') }}">
                         @elseif(auth('admin')->check())
                             <form method="POST" action="{{ route('logout.admin') }}">
-                       @elseif(auth('doctor_logins')->check())
+                        @elseif(auth('doctor_logins')->check())
                             <form id="logout-form" action="{{ route('logout.doctor_logins') }}" method="POST">
-                       @else
+                        @else
                             <form id="logout-form" action="{{ route('logout.receptionist_logins') }}" method="POST">
                             @endif
                             @csrf
-                                        <a class="dropdown-item" href="#"
-                                           onclick="event.preventDefault();
-                                        this.closest('form').submit();"><i class="bx bx-log-out"></i>تسجيل الخروج</a>
-                                    </form>
+                                <a class="dropdown-item" href="#"
+                                   onclick="event.preventDefault();
+                                   this.closest('form').submit();"><i class="bx bx-log-out"></i>تسجيل الخروج</a>
+                            </form>
 
                     </div>
                 </div>
                 <div class="dropdown main-header-message right-toggle">
                     <a class="nav-link pr-0" data-toggle="sidebar-left" data-target=".sidebar-left">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="header-icon-svgs" viewBox="0 0 24 24" fill="none"
-                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                             class="feather feather-menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="feather feather-menu header-icon-svgs" viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="3" y1="12" x2="21" y2="12"></line>
                             <line x1="3" y1="6" x2="21" y2="6"></line>
                             <line x1="3" y1="18" x2="21" y2="18"></line>
