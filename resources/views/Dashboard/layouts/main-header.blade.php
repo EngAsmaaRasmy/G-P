@@ -300,13 +300,13 @@
                         <a class="dropdown-item" href=""><i class="bx bx-slider-alt"></i> Account Settings</a>
 
                         @if(auth('web')->check())
-                            <form method="GET" action="{{ route('logout.user') }}">
+                            <form method="POST" action="{{ route('logout.user') }}">
                         @elseif(auth('admin')->check())
-                            <form method="GET" action="{{ route('logout.admin') }}">
+                            <form method="POST" action="{{ route('logout.admin') }}">
                        @elseif(auth('doctor_logins')->check())
-                            <form id="logout-form" action="{{ route('logout.doctor_logins') }}" method="GET">
+                            <form id="logout-form" action="{{ route('logout.doctor_logins') }}" method="POST">
                        @else
-                            <form id="logout-form" action="{{ route('logout.receptionist_logins') }}" method="GET">
+                            <form id="logout-form" action="{{ route('logout.receptionist_logins') }}" method="POST">
                             @endif
                             @csrf
                                         <a class="dropdown-item" href="#"
