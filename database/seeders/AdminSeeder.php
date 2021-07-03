@@ -5,9 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 
-class AdminTableSeeder extends Seeder
+class AdminSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -19,8 +18,8 @@ class AdminTableSeeder extends Seeder
         DB::table('admins')->delete();
         DB::table('admins')->insert([
             'name' => 'admin',
-            'email' => 'admin@gmail.com',
-            'password' => Hash::make(md5('12345678')),
+            'email' =>'admin@gmail.com',
+            'password' => Hash::make('123456789'),
         ]);
     }
 }

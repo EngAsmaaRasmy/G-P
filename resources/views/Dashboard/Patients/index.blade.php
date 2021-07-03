@@ -1,5 +1,8 @@
-
-@extends('Dashboard.layouts.master')
+@if(auth('admin')->check())
+    @extends('Dashboard.layouts.master')
+@else
+    @extends('Dashboard.layouts.raceptionist_master')
+@endif
 
 
 @section('css')

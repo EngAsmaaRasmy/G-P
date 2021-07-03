@@ -1,0 +1,21 @@
+
+   Illuminate\Contracts\Container\BindingResolutionException 
+
+  Target class [Database\Seeders\DB::table('admins')-;] does not exist.
+
+  at F:\مشروع التخرج\new\hospital\vendor\laravel\framework\src\Illuminate\Container\Container.php:875
+    871▕ 
+    872▕         try {
+    873▕             $reflector = new ReflectionClass($concrete);
+    874▕         } catch (ReflectionException $e) {
+  ➜ 875▕             throw new BindingResolutionException("Target class [$concrete] does not exist.", 0, $e);
+    876▕         }
+    877▕ 
+    878▕         // If the type is not instantiable, the developer is attempting to resolve
+    879▕         // an abstract type such as an Interface or Abstract Class and there is
+
+  1   F:\مشروع التخرج\new\hospital\vendor\laravel\framework\src\Illuminate\Container\Container.php:873
+      ReflectionException::("Class Database\Seeders\DB::table('admins')-; does not exist")
+
+  2   F:\مشروع التخرج\new\hospital\vendor\laravel\framework\src\Illuminate\Container\Container.php:873
+      ReflectionClass::__construct("Database\Seeders\DB::table('admins')-;")

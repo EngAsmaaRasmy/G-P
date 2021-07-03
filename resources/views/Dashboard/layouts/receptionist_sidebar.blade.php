@@ -14,8 +14,8 @@
 							<img alt="user-img" class="avatar avatar-xl brround" src="{{URL::asset('Dashboard/img/faces/6.jpg')}}"><span class="avatar-status profile-status bg-green"></span>
 						</div>
 						<div class="user-info">
-							<h4 class="font-weight-semibold mt-3 mb-0">Petey Cruiser</h4>
-							<span class="mb-0 text-muted">Premium Member</span>
+                            <h4 class="font-weight-semibold mt-3 mb-0">{{ Auth::user()->name }}</h4>
+                            <span class="mb-0 text-muted">{{ Auth::user()->email }}</span>
 						</div>
 					</div>
 				</div>
@@ -34,10 +34,6 @@
                         <ul class="slide-menu">
                             <li><a class="slide-item" href="{{route('patients.create')}}">اضافة مريض</a></li>
                             <li><a class="slide-item" href="{{ route('patients.index') }}">قائمة المرضي</a></li>
-<<<<<<< HEAD
-=======
-{{--                            <li><a class="slide-item" href="{{route('storePatients')}}">تعديل مريض</a></li>--}}
->>>>>>> 4a78743d62fa31c62bdf383954fc53e2d2dc7090
                         </ul>
                     </li>
                     <li class="slide">
