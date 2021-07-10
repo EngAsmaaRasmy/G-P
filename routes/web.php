@@ -1,9 +1,5 @@
 <?php
 
-
-use App\Http\Controllers\Dashboard\PatientController;
-use App\Http\Controllers\RoleController;
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,15 +16,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-
-<<<<<<< HEAD
-//Route::get('/reception/patient/create',[PatientController::class,'create'])->name('receptionist.create');
-
-=======
->>>>>>> 4a78743d62fa31c62bdf383954fc53e2d2dc7090
-
-
-
-
-
