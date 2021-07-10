@@ -7,10 +7,10 @@ use App\Http\Controllers\Dashboard\InsuranceController;
 use App\Http\Controllers\Dashboard\PatientController;
 use App\Http\Controllers\Dashboard\PaymentAccountController;
 use App\Http\Controllers\Dashboard\ReceiptAccountController;
+use App\Http\Controllers\Dashboard\RoleController;
 use App\Http\Controllers\Dashboard\SectionController;
 use App\Http\Controllers\Dashboard\SingleServiceController;
 use App\Http\Controllers\Dashboard\UserController;
-use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -113,12 +113,9 @@ Route::group(
 
         //############################# Patients route ##########################################
 
+        Route::resource('Patients', PatientController::class);
 
-//        Route::resource('Patients', PatientController::class);
-//        Route::post('/patients/store',[PatientController::class,'store'])->name('storePatients');
-//        Route::resource('Patients', PatientController::class)->name('patients');
-//        Route::get('/patients/create',[PatientController::class,'create'])->name('createPatients');
-//        Route::post('/patients/store',[PatientController::class,'store'])->name('storePatients');
+        // Route::post('/patients/store',[PatientController::class,'store'])->name('storePatients');
 
         //############################# end Patients route ######################################
 
@@ -154,7 +151,17 @@ Route::group(
 //    Route::resource('Patients', PatientController::class);
 //    Route::view('single_invoices','livewire.single_invoices.index')->name('single_invoices');
 //});
-Route::group(['middleware' => ['auth:receptionist_logins,admin']], function() {
+
+Route::group(['middleware' => ['auth:receptionist_logins,admin,doctor_logins,web']], function() {
     Route::resource('patients', PatientController::class);
+    Route::get('mypatients', [PatientController::class, 'mypatients'])->name('mypatients');
+    Route::get('diagnosis/{id}', [PatientController::class, 'diagnosis'])->name('diagnosis');
+    Route::put('reqdiagnosis', [PatientController::class, 'reqdiagnosis'])->name('reqdiagnosis');
+
+    Route::post('uploadxray', [PatientController::class, 'uploadxray'])->name('uploadxray');
+
+    Route::get('mydiagnosis', [PatientController::class, 'mydiagnosis'])->name('mydiagnosis');
+
     Route::view('single_invoices','livewire.single_invoices.index')->name('single_invoices');
+
 });

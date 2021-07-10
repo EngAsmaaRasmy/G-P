@@ -29,7 +29,7 @@
                            aria-expanded="false">
                             @if (App::getLocale() == 'ar')
                                 <span class="avatar country-Flag mr-0 align-self-center bg-transparent"><img
-                                        src="{{URL::asset('Dashboard/img/flags/egypt_flag.jpg')}}" alt="img"></span>
+                                        src="{{URL::asset('Dashbloard/img/flags/egypt_flag.jpg')}}" alt="img"></span>
                                 <strong
                                     class="mr-2 ml-2 my-auto">{{ LaravelLocalization::getCurrentLocaleName() }}</strong>
                             @else
@@ -296,25 +296,34 @@
                             </div>
                         </div>
                         <a class="dropdown-item" href=""><i class="bx bx-user-circle"></i>Profile</a>
-                        <a class="dropdown-item" href=""><i class="bx bx-cog"></i> Edit Profile</a>
+                        <a class="dropdown-item" href="{{url('edit-profile')}}"><i class="bx bx-cog"></i> Edit Profile</a>
                         <a class="dropdown-item" href=""><i class="bx bxs-inbox"></i>Inbox</a>
                         <a class="dropdown-item" href=""><i class="bx bx-envelope"></i>Messages</a>
                         <a class="dropdown-item" href=""><i class="bx bx-slider-alt"></i> Account Settings</a>
 
+{{--                        <a href="{{ route('logout.user') }}" ></a>--}}
                         @if(auth('web')->check())
-                            <form method="POST" action="{{ route('logout.user') }}">
-                        @elseif(auth('admin')->check())
-                            <form method="POST" action="{{ route('logout.admin') }}">
-                        @elseif(auth('doctor_logins')->check())
-                            <form id="logout-form" action="{{ route('logout.doctor_logins') }}" method="POST">
-                        @else
-                            <form id="logout-form" action="{{ route('logout.receptionist_logins') }}" method="POST">
+{{--                            <a href="{{ route('logout.user') }}" ></a>--}}
+                            <a class="dropdown-item" href="{{ route('logout.user') }}"
+                               ><i class="bx bx-log-out"></i>تسجيل الخروج</a>
+
+                            @elseif(auth('admin')->check())
+{{--                            <a href="{{ route('logout.admin') }}" ></a>--}}
+                            <a class="dropdown-item" href="{{ route('logout.admin') }}"
+                              ><i class="bx bx-log-out"></i>تسجيل الخروج</a>
+
+                             @elseif(auth('doctor_logins')->check())
+{{--                            <a href="{{ route('logout.doctor_logins') }}" ></a>--}}
+                            <a class="dropdown-item" href="{{ route('logout.doctor_logins') }}"
+                               ><i class="bx bx-log-out"></i>تسجيل الخروج</a>
+
+                             @elseif(auth('receptionist_logins')->check())
+{{--                            <a href="{{ route('logout.receptionist_logins') }}" ></a>--}}
+                            <a class="dropdown-item" href="{{ route('logout.receptionist_logins') }}"
+                              ><i class="bx bx-log-out"></i>تسجيل الخروج</a>
                             @endif
-                            @csrf
-                                <a class="dropdown-item" href="#"
-                                   onclick="event.preventDefault();
-                                   this.closest('form').submit();"><i class="bx bx-log-out"></i>تسجيل الخروج</a>
-                            </form>
+
+
 
                     </div>
                 </div>

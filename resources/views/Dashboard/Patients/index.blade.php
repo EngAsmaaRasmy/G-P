@@ -1,5 +1,6 @@
 
-@extends('Dashboard.layouts.master')
+    @extends('Dashboard.layouts.master')
+
 
 
 @section('css')
@@ -23,11 +24,13 @@
 					<!--div-->
 					<div class="col-xl-12">
 						<div class="card">
+                            @if(Auth::guard('admin')->check() || Auth::guard('receptionist_logins')->check())
 							<div class="card-header pb-0">
 								<div class="d-flex justify-content-between">
                                     <a href="{{route('Patients.create')}}" class="btn btn-primary">اضافة مريض جديد</a>
 								</div>
 							</div>
+                            @endif
 							<div class="card-body">
 								<div class="table-responsive">
 									<table class="table text-md-nowrap" id="example1">
@@ -40,8 +43,16 @@
 												<th>رقم الهاتف</th>
 												<th>الجنس</th>
                                                 <th >فصلية الدم</th>
-                                                <th >العنوان</th>
+                                                <th >التشخيص</th>
+                                                {{--                                                <th >العنوان</th>--}}
+
+                                                @if(!Auth::guard('doctor_logins')->check())
+
                                                 <th>العمليات</th>
+                                                @else
+                                                    <th>تعديل التشخصي</th>
+
+                                                @endif
 											</tr>
 										</thead>
 										<tbody>
@@ -54,11 +65,26 @@
                                                 <td>{{$Patient->Phone}}</td>
                                                 <td>{{$Patient->Gender == 1 ? 'ذكر' :'انثي'}}</td>
                                                 <td>{{$Patient->Blood_Group}}</td>
-                                                <td>{{$Patient->Address}}</td>
+                                                @if(Auth::guard('doctor_logins')->check())
+                                                    @if( isset($Patient->diagnosis) )
+                                                <td>{{ Crypt::decryptString($Patient->diagnosis) }}</td>
+                                                    @else
+                                                        <td>diagnosis</td>
+                                                    @endif
+                                                    @endif
+                                                {{--                                                <td>{{$Patient->Address}}</td>--}}
+                                                @if(Auth::guard('admin')->check())
                                                 <td>
                                                     <a href="{{route('Patients.edit',$Patient->id)}}" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>
                                                     <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#Deleted{{$Patient->id}}"><i class="fas fa-trash"></i></button>
                                                 </td>
+                                                    @endif
+                                                @if(Auth::guard('doctor_logins')->check())
+
+                                                <td>
+                                                    <a href="{{route('diagnosis',$Patient->id)}}" class="btn btn-sm btn-primary"><i class="fas fa-diagnosis"></i></a>
+                                                </td>
+                                                    @endif
 											</tr>
                                            @include('Dashboard.Patients.Deleted')
                                         @endforeach

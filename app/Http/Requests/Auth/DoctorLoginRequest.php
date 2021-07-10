@@ -45,7 +45,7 @@ class DoctorLoginRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
 
-        if (auth('doctor_logins')->attempt($this->only('email', 'password'), $this->filled('remember'))) {
+        if ( auth('doctor_logins')->attempt($this->only('email', 'password'), $this->filled('remember'))) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([

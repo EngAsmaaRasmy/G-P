@@ -27,13 +27,13 @@ Route::get('/login', [AuthenticatedSessionController::class, 'create'])->middlew
 
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])->middleware('guest')->name('login.user');
 
-Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->middleware('auth')->name('logout.user');
+Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->middleware('auth')->name('logout.user');
 
 //################################## Route Admin ##############################################
 
 Route::post('/login/admin', [AdminController::class, 'store'])->middleware('guest')->name('login.admin');
 
-Route::post('/logout/admin', [AdminController::class, 'destroy'])->middleware('auth:admin')->name('logout.admin');
+Route::get('/logout/admin', [AdminController::class, 'destroy'])->middleware('auth:admin')->name('logout.admin');
 
 //#############################################################################################
 
@@ -41,14 +41,14 @@ Route::post('/logout/admin', [AdminController::class, 'destroy'])->middleware('a
 
 Route::post('/login/doctor', [DoctorController::class, 'store'])->middleware('guest')->name('login.doctor');
 
-Route::post('/logout/doctor', [DoctorController::class, 'destroy'])->middleware('auth:doctor_logins')->name('logout.doctor_logins');
+Route::get('/logout/doctor', [DoctorController::class, 'destroy'])->middleware('auth:doctor_logins')->name('logout.doctor_logins');
 
 //#############################################################################################
 //################################## Route receptionist ##############################################
 
 Route::post('/login/receptionist', [ReceptionistController::class, 'store'])->middleware('guest')->name('login.receptionist');
 
-Route::post('/logout/receptionist', [ReceptionistController::class, 'destroy'])->middleware('auth:receptionist_logins')->name('logout.receptionist_logins');
+Route::get('/logout/receptionist', [ReceptionistController::class, 'destroy'])->middleware('auth:receptionist_logins')->name('logout.receptionist_logins');
 
 //#############################################################################################
 
@@ -87,6 +87,6 @@ Route::get('/confirm-password', [ConfirmablePasswordController::class, 'show'])
 Route::post('/confirm-password', [ConfirmablePasswordController::class, 'store'])
                 ->middleware('auth');
 
-Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->middleware('auth')
                 ->name('logout.user');

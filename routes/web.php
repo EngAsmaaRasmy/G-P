@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\EditProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+//Route::get('/reception/patient/create',[PatientController::class,'create'])->name('receptionist.create');
+
+
+Route::group(['middleware' => ['web','auth:admin']], function () {
+
+    Route::get('edit-profile', [EditProfileController::class, 'index']);
+    Route::put('edit-profile', [EditProfileController::class, 'update']);
+
+});
+

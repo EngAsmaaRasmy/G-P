@@ -15,51 +15,39 @@ class AdminController extends Controller
     {
         //
     }
-
-
     public function create()
     {
         //
     }
-
-
     public function store(AdminLoginRequest $request)
     {
+//        dd($request->authenticate());
         if($request->authenticate()){
             $request->session()->regenerate();
             return redirect()->intended(RouteServiceProvider::ADMIN);
         }
 
         return redirect()->back()->withErrors(['name' => (trans('Dashboard/auth.failed'))]);
-
     }
-
-
     public function show($id)
     {
         //
     }
-
-
     public function edit($id)
     {
         //
     }
-
-
     public function update(Request $request, $id)
     {
         //
     }
-
-
-    public function destroy(Request $request)
+    public function destroy()
     {
         Auth::guard('admin')->logout();
 
-        $request->session()->invalidate();
-
-        $request->session()->regenerateToken();
+//        $request->session()->invalidate();
+//
+//        $request->session()->regenerateToken();
 
         return redirect('/');
     }

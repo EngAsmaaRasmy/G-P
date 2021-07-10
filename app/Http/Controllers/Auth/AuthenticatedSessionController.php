@@ -28,13 +28,13 @@ class AuthenticatedSessionController extends Controller
 
         return redirect()->back()->withErrors(['name' => (trans('Dashboard/auth.failed'))]);
     }
-    public function destroy(Request $request)
+    public function destroy()
     {
         Auth::guard('web')->logout();
 
-        $request->session()->invalidate();
-
-        $request->session()->regenerateToken();
+//        $request->session()->invalidate();
+//
+//        $request->session()->regenerateToken();
 
         return redirect('/');
     }

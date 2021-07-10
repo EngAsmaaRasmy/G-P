@@ -25,8 +25,7 @@ class PatientController extends Controller
 
     public function create()
     {
-//        return $this->Patient->create();
-        return view('Dashboard.Patients.create');
+        return $this->Patient->create();
     }
 
 
@@ -57,5 +56,25 @@ class PatientController extends Controller
     public function destroy(Request $request)
     {
        return $this->Patient->destroy($request);
+    }
+    public function  mypatients(){
+        return $this->Patient->mypatients();
+
+    }
+
+    public  function  diagnosis($id){
+        return $this->Patient->diagnosis($id);
+
+    }
+    public  function  reqdiagnosis(Request $request){
+        return $this->Patient->reqdiagnosis($request);
+
+    }
+
+    public  function mydiagnosis(){
+        return $this->Patient->mydiagnosis();
+    }
+    public function uploadxray(Request $request){
+        return $this->Patient->uploadxray($request);
     }
 }
