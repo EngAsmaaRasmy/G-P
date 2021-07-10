@@ -140,7 +140,7 @@ inner join  `patients` on  `users`.`id` = `patients`.`id`
                'xray'=>$user_id
         ]);
        $request['name'] = $user_id;
-       $this->verifyAndStoreImage($request,'photo','xray','upload_image',$user_id,'App\Models\Doctor');
+       $this->verifyAndStoreImage($request,'photo','xray','upload_image',$user_id,'App\Models\Patient');
 
        return redirect()->route('mydiagnosis');
 
