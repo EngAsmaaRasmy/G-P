@@ -37,6 +37,10 @@
                             <input type="email" name="email"  value="{{old('email')}}" class="form-control @error('email') is-invalid @enderror" required>
                         </div>
 
+                        <div class="col">
+                            <label>الرقم القومي</label>
+                            <input type="text" name="ssn"  value="{{old('ssn')}}" class="form-control @error('ssn') is-invalid @enderror" required>
+                        </div>
 
                         <div class="col">
                             <label>تاريخ الميلاد</label>

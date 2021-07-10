@@ -43,13 +43,14 @@
 												<th>رقم الهاتف</th>
 												<th>الجنس</th>
                                                 <th >فصلية الدم</th>
-{{--                                                <th >العنوان</th>--}}
+                                                <th >التشخيص</th>
+                                                {{--                                                <th >العنوان</th>--}}
 
                                                 @if(!Auth::guard('doctor_logins')->check())
 
                                                 <th>العمليات</th>
                                                 @else
-                                                    <th>التشخيص</th>
+                                                    <th>تعديل التشخصي</th>
 
                                                 @endif
 											</tr>
@@ -64,7 +65,14 @@
                                                 <td>{{$Patient->Phone}}</td>
                                                 <td>{{$Patient->Gender == 1 ? 'ذكر' :'انثي'}}</td>
                                                 <td>{{$Patient->Blood_Group}}</td>
-{{--                                                <td>{{$Patient->Address}}</td>--}}
+                                                @if(Auth::guard('doctor_logins')->check())
+                                                    @if( isset($Patient->diagnosis) )
+                                                <td>{{ Crypt::decryptString($Patient->diagnosis) }}</td>
+                                                    @else
+                                                        <td>diagnosis</td>
+                                                    @endif
+                                                    @endif
+                                                {{--                                                <td>{{$Patient->Address}}</td>--}}
                                                 @if(Auth::guard('admin')->check())
                                                 <td>
                                                     <a href="{{route('Patients.edit',$Patient->id)}}" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>

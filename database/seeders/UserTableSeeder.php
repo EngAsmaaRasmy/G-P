@@ -19,11 +19,11 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->delete();
-        DB::table('users')->insert([
-            'name' => 'user',
-            'email' => 'user@gmail.com',
-            'password' => Hash::make('12345678'),
-        ]);
+//        DB::table('users')->delete();
+//        DB::table('users')->insert([
+//            'name' => 'user',
+//            'email' => 'user@gmail.com',
+//            'password' => Hash::make('12345678'),
+//        ]);
     }
 }

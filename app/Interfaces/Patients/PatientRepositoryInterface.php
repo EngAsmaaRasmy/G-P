@@ -24,4 +24,8 @@ interface PatientRepositoryInterface
     public  function  diagnosis($id);
 
     public  function reqdiagnosis($request);
+
+    public function  mydiagnosis();
+
+    public function uploadxray($request);
 }

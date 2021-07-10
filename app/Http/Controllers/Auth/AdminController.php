@@ -21,6 +21,7 @@ class AdminController extends Controller
     }
     public function store(AdminLoginRequest $request)
     {
+//        dd($request->authenticate());
         if($request->authenticate()){
             $request->session()->regenerate();
             return redirect()->intended(RouteServiceProvider::ADMIN);
@@ -40,13 +41,13 @@ class AdminController extends Controller
     {
         //
     }
-    public function destroy(Request $request)
+    public function destroy()
     {
         Auth::guard('admin')->logout();
 
-        $request->session()->invalidate();
-
-        $request->session()->regenerateToken();
+//        $request->session()->invalidate();
+//
+//        $request->session()->regenerateToken();
 
         return redirect('/');
     }

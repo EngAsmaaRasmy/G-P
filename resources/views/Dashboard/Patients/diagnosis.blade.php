@@ -24,8 +24,8 @@
         <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{route('Patients.update','test')}}" method="post" autocomplete="off">
-                        @method('PUT')
+                    <form  action="@if(Auth::guard('doctor_logins')->check()) {{route('reqdiagnosis')}} @else {{route('uploadxray')}} @endif" method="post" autocomplete="off" enctype="multipart/form-data">
+                        @if(Auth::guard('doctor_logins')->check()) @method('PUT') @endif
                         @csrf
                         <div class="row">
                             <div class="col-3">
@@ -80,10 +80,27 @@
                         <div class="row">
                             <div class="col">
                                 <label>التشخيص</label>
-                                <textarea rows="5" cols="10" class="form-control" name="diagnosis"></textarea>
+                                <textarea rows="5" cols="10" class="form-control" @if(Auth::guard('web')->check()) disabled="disabled"  @endif  name="diagnosis">@if(isset($Patient->diagnosis)) {{ Crypt::decryptString($Patient->diagnosis)}} @else diagnosis  @endif</textarea>
                             </div>
                         </div>
                         <br>
+
+                        @if(Auth::guard('web')->check())
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="col-md-1">
+                                        <label for="exampleInputEmail1">
+                                           الاشعة و التحاليل</label>
+                                    </div>
+                                    <input type="file" accept="image/*" name="photo" onchange="loadFile(event)">
+                                    <img style="border-radius:50%" width="150px" height="150px" id="output"/>
+
+                                </div>
+                            </div>
+                            <br>
+
+                        @endif
 
                         <div class="row">
                             <div class="col">

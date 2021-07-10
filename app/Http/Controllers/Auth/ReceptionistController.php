@@ -39,13 +39,13 @@ class ReceptionistController extends Controller
     {
         //
     }
-    public function destroy(Request $request)
+    public function destroy()
     {
         Auth::guard('receptionist_logins')->logout();
 
-        $request->session()->invalidate();
-
-        $request->session()->regenerateToken();
+//        $request->session()->invalidate();
+//
+//        $request->session()->regenerateToken();
 
         return redirect('/');
     }

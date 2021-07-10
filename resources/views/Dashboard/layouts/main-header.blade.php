@@ -301,21 +301,29 @@
                         <a class="dropdown-item" href=""><i class="bx bx-envelope"></i>Messages</a>
                         <a class="dropdown-item" href=""><i class="bx bx-slider-alt"></i> Account Settings</a>
 
+{{--                        <a href="{{ route('logout.user') }}" ></a>--}}
                         @if(auth('web')->check())
-                            <form method="POST" id="logout-form" action="{{ route('logout.user') }}">
+{{--                            <a href="{{ route('logout.user') }}" ></a>--}}
+                            <a class="dropdown-item" href="{{ route('logout.user') }}"
+                               ><i class="bx bx-log-out"></i>تسجيل الخروج</a>
+
                             @elseif(auth('admin')->check())
-                            <form method="POST" id="logout-form" action="{{ route('logout.admin') }}">
+{{--                            <a href="{{ route('logout.admin') }}" ></a>--}}
+                            <a class="dropdown-item" href="{{ route('logout.admin') }}"
+                              ><i class="bx bx-log-out"></i>تسجيل الخروج</a>
+
                              @elseif(auth('doctor_logins')->check())
-                            <form id="logout-form" action="{{ route('logout.doctor_logins') }}" method="POST">
+{{--                            <a href="{{ route('logout.doctor_logins') }}" ></a>--}}
+                            <a class="dropdown-item" href="{{ route('logout.doctor_logins') }}"
+                               ><i class="bx bx-log-out"></i>تسجيل الخروج</a>
+
                              @elseif(auth('receptionist_logins')->check())
-                            <form id="logout-form" action="{{ route('logout.receptionist_logins') }}" method="POST">
+{{--                            <a href="{{ route('logout.receptionist_logins') }}" ></a>--}}
+                            <a class="dropdown-item" href="{{ route('logout.receptionist_logins') }}"
+                              ><i class="bx bx-log-out"></i>تسجيل الخروج</a>
                             @endif
 
-                                <a class="dropdown-item" href="#"
-                                   onclick="event.preventDefault();
-                                   this.closest('form').submit();"><i class="bx bx-log-out"></i>تسجيل الخروج</a>
-                                @csrf
-                            </form>
+
 
                     </div>
                 </div>

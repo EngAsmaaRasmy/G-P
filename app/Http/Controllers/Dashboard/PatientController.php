@@ -68,8 +68,15 @@ class PatientController extends Controller
         return $this->Patient->diagnosis($id);
 
     }
-    public  function  reqdiagnosis(){
-        return $this->Patient->reqdiagnosis();
+    public  function  reqdiagnosis(Request $request){
+        return $this->Patient->reqdiagnosis($request);
 
+    }
+
+    public  function mydiagnosis(){
+        return $this->Patient->mydiagnosis();
+    }
+    public function uploadxray(Request $request){
+        return $this->Patient->uploadxray($request);
     }
 }

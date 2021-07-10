@@ -152,13 +152,17 @@ Route::group(
 //    Route::view('single_invoices','livewire.single_invoices.index')->name('single_invoices');
 //});
 
-Route::group(['middleware' => ['auth:receptionist_logins,admin,doctor_logins']], function() {
+Route::group(['middleware' => ['auth:receptionist_logins,admin,doctor_logins,web']], function() {
     Route::resource('patients', PatientController::class);
     Route::get('mypatients', [PatientController::class, 'mypatients'])->name('mypatients');
     Route::get('diagnosis/{id}', [PatientController::class, 'diagnosis'])->name('diagnosis');
-    Route::post('reqdiagnosis', [PatientController::class, 'reqdiagnosis'])->name('reqdiagnosis');
+    Route::put('reqdiagnosis', [PatientController::class, 'reqdiagnosis'])->name('reqdiagnosis');
 
-//    Route::view('single_invoices','livewire.single_invoices.index')->name('single_invoices');
+    Route::post('uploadxray', [PatientController::class, 'uploadxray'])->name('uploadxray');
+
+    Route::get('mydiagnosis', [PatientController::class, 'mydiagnosis'])->name('mydiagnosis');
+
+   Route::view('single_invoices','livewire.single_invoices.index')->name('single_invoices');
 });
 
 
