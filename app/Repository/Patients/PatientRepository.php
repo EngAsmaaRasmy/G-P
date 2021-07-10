@@ -4,8 +4,11 @@
 namespace App\Repository\Patients;
 use App\Interfaces\Patients\PatientRepositoryInterface;
 use App\Models\Patient;
+use App\Models\User;
+use http\Env\Request;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class PatientRepository implements PatientRepositoryInterface
 {
@@ -34,7 +37,15 @@ class PatientRepository implements PatientRepositoryInterface
            //insert trans
            $Patients->name = $request->name;
            $Patients->Address = $request->Address;
-           $Patients->save();
+           $res = $Patients->save();
+           if($res){
+               $user = new User();
+               $user->id = $Patients->id;
+               $user->email = $request->email;
+               $user->name = $request->name;
+               $user->Password = Hash::make($request->Phone);
+               $user->save();
+           }
            session()->flash('add');
            return redirect()->back();
        }
@@ -72,5 +83,25 @@ class PatientRepository implements PatientRepositoryInterface
        Patient ::destroy($request->id);
        session()->flash('delete');
        return redirect()->back();
+   }
+   public  function  mypatients(){
+       $Patients = DB::select("
+       SELECT * FROM `users`
+INNER JOIN (SELECT * FROM `single_invoices` WHERE `single_invoices`.`doctor_id` = 31)single_invoices
+ON `users`.`id` = `single_invoices`.`patient_id`
+inner join  `patients` on  `users`.`id` = `patients`.`id`
+
+       ");
+       return view('Dashboard.Patients.index',compact('Patients'));
+
+   }
+
+   public function  diagnosis($id){
+       $Patient = Patient::findorfail($id);
+       return view('Dashboard.Patients.diagnosis',compact('Patient'));
+   }
+
+   public  function reqdiagnosis($request){
+       dd($request);
    }
 }

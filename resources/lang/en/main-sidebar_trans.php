@@ -12,4 +12,12 @@ return array (
   'index' => 'Home',
   'sections' => 'Sections',
   'view_all' => 'view_all',
+    'Bills' => 'Bills',
+    'Single_bill'=>'Single Service',
+    'patients' =>'Patients',
+    'add_patient' => 'Add Patient',
+    'patients_list'=>'List of Patients',
+    'accounts'=>'Accounts',
+    'catch'=>'Catch',
+    'receipt'=>'Receipt',
 );

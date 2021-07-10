@@ -59,4 +59,17 @@ class PatientController extends Controller
     {
        return $this->Patient->destroy($request);
     }
+    public function  mypatients(){
+        return $this->Patient->mypatients();
+
+    }
+
+    public  function  diagnosis($id){
+        return $this->Patient->diagnosis($id);
+
+    }
+    public  function  reqdiagnosis(){
+        return $this->Patient->reqdiagnosis();
+
+    }
 }

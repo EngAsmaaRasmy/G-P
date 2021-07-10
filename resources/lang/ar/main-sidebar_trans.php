@@ -12,4 +12,13 @@ return array (
   'index' => 'الرئيسية',
   'sections' => 'الاقسام',
   'view_all' => 'عرض الكل',
+    'Bills' => ' الفواتير',
+    'Single_bill'=>'فاتورة خدمة مفردة',
+    'patients' =>'المرضي',
+    'add_patient' => 'اضافة مريض',
+    'patients_list'=>'قائمة المرضي',
+    'accounts'=>'الحسابات',
+    'catch'=>'سندد قبض',
+    'receipt'=>'سند صرف',
+
 );

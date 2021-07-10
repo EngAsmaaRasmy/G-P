@@ -105,13 +105,6 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\ReceptionistLogin::class,
         ],
-
-
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
     ],
 
     /*

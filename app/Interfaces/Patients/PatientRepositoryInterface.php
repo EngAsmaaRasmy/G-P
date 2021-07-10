@@ -18,4 +18,10 @@ interface PatientRepositoryInterface
     public function update($request);
     // Deleted Patients
     public function destroy($request);
+
+    public  function  mypatients();
+
+    public  function  diagnosis($id);
+
+    public  function reqdiagnosis($request);
 }

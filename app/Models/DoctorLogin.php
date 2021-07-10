@@ -11,6 +11,8 @@ class DoctorLogin extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    protected $table ='doctors';
+
     /**
      * The attributes that are mass assignable.
      *

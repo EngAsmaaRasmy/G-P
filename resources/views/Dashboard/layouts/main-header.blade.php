@@ -29,7 +29,7 @@
                            aria-expanded="false">
                             @if (App::getLocale() == 'ar')
                                 <span class="avatar country-Flag mr-0 align-self-center bg-transparent"><img
-                                        src="{{URL::asset('Dashboard/img/flags/egypt_flag.jpg')}}" alt="img"></span>
+                                        src="{{URL::asset('Dashbloard/img/flags/egypt_flag.jpg')}}" alt="img"></span>
                                 <strong
                                     class="mr-2 ml-2 my-auto">{{ LaravelLocalization::getCurrentLocaleName() }}</strong>
                             @else
@@ -302,18 +302,19 @@
                         <a class="dropdown-item" href=""><i class="bx bx-slider-alt"></i> Account Settings</a>
 
                         @if(auth('web')->check())
-                            <form method="POST" action="{{ route('logout.user') }}">
-                        @elseif(auth('admin')->check())
-                            <form method="POST" action="{{ route('logout.admin') }}">
-                        @elseif(auth('doctor_logins')->check())
+                            <form method="POST" id="logout-form" action="{{ route('logout.user') }}">
+                            @elseif(auth('admin')->check())
+                            <form method="POST" id="logout-form" action="{{ route('logout.admin') }}">
+                             @elseif(auth('doctor_logins')->check())
                             <form id="logout-form" action="{{ route('logout.doctor_logins') }}" method="POST">
-                        @else
+                             @elseif(auth('receptionist_logins')->check())
                             <form id="logout-form" action="{{ route('logout.receptionist_logins') }}" method="POST">
                             @endif
-                            @csrf
+
                                 <a class="dropdown-item" href="#"
                                    onclick="event.preventDefault();
                                    this.closest('form').submit();"><i class="bx bx-log-out"></i>تسجيل الخروج</a>
+                                @csrf
                             </form>
 
                     </div>
