@@ -18,11 +18,9 @@ class RedirectIfAuthenticated
      * @return mixed
      */
     public function handle($request, Closure $next){
-
         if (auth('web')->check()){
             return redirect(RouteServiceProvider::HOME);
         }
-
         if (auth('admin')->check()){
             return redirect(RouteServiceProvider::ADMIN);
         }
@@ -32,8 +30,6 @@ class RedirectIfAuthenticated
         if (auth('receptionist_logins')->check()){
             return redirect(RouteServiceProvider::RECEPTIONIST);
         }
-
-
         return $next($request);
     }
 }

@@ -25,9 +25,7 @@ class PatientController extends Controller
 
     public function create()
     {
-
         return $this->Patient->create();
-
     }
 
 

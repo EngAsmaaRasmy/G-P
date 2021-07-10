@@ -115,7 +115,7 @@ Route::group(
 
         Route::resource('Patients', PatientController::class);
 
-      // Route::post('/patients/store',[PatientController::class,'store'])->name('storePatients');
+        // Route::post('/patients/store',[PatientController::class,'store'])->name('storePatients');
 
         //############################# end Patients route ######################################
 
@@ -162,14 +162,6 @@ Route::group(['middleware' => ['auth:receptionist_logins,admin,doctor_logins,web
 
     Route::get('mydiagnosis', [PatientController::class, 'mydiagnosis'])->name('mydiagnosis');
 
-   Route::view('single_invoices','livewire.single_invoices.index')->name('single_invoices');
+    Route::view('single_invoices','livewire.single_invoices.index')->name('single_invoices');
+
 });
-
-
-
-
-
-
-
-
-
