@@ -10,6 +10,8 @@ class EditProfileRequest extends FormRequest
     {
         return [
             'name' => 'required',
+            'email' => 'required',
+
         ];
     }
 }

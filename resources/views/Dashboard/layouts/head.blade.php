@@ -10,9 +10,6 @@
 <link href="{{URL::asset('Dashboard/plugins/datatable/css/jquery.dataTables.min.css')}}" rel="stylesheet">
 <link href="{{URL::asset('Dashboard/plugins/datatable/css/responsive.dataTables.min.css')}}" rel="stylesheet">
 
-<link href="{{URL::asset('frontend/css/front_css/bootstrap.css')}}" rel="stylesheet">
-<link href="{{URL::asset('frontend/css/front_css/style.css')}}" rel="stylesheet">
-<link href="{{URL::asset('frontend/css/front_css/responsive.css')}}" rel="stylesheet">
 <link href="{{URL::asset('frontend/css/front_css/color-switcher-design.css')}}" rel="stylesheet">
 <link id="theme-color-file" href="{{URL::asset('frontend/css/front_css/color-themes/default-theme.css')}}" rel="stylesheet">
 
